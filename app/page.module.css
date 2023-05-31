@@ -119,6 +119,7 @@
 
   .recurringBox {
     width: 90%;
+    gap: 1rem;
   }
 
   .recurringBox div {
@@ -151,6 +152,7 @@
 
   .recurringBox {
     flex-direction: column;
+    gap: 1rem;
   }
 
   .search {
