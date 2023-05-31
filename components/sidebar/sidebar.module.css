@@ -1,0 +1,128 @@
+.sidebarContainer {
+    width: 15%;
+    position: fixed;
+    left: 21px;
+    top: 16.63px;
+    height: 100vh;
+    padding: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    gap: 65px;
+    flex-direction: column;
+}
+
+.closeSidebar {
+    width: 15%;
+    position: fixed;
+    left: -20%;
+    top: 16.63px;
+    height: 100vh;
+    padding: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    gap: 65px;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.closeIcon {
+    width: 15%;
+    padding: 1rem 0;
+    display: none;
+}
+
+.logoSection {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+
+}
+
+.sidebar ul li {
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.sidebar ul li:hover {
+    background: #EEF0FF;
+    border-radius: 5px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: #202553;
+}
+
+@media (max-width: 768px) {
+    .sidebarContainer {
+        left: -20%;
+        top: 16.63px;
+    }
+
+    .closeIcon {
+        display: block;
+    }
+
+    .closeSidebar {
+        left: 0px;
+        top: 16.63px;
+        padding: 10px;
+    }
+
+    .logoSection {
+        justify-content: space-around;
+        /* flex-direction: column; */
+        /* gap: 1rem; */
+        cursor: pointer;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .sidebar ul li {
+        padding: 10px;
+    }
+
+    .sidebar ul li a span {
+        display: none;
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 1280px) {
+    .sidebarContainer {
+        width: 20%;
+        padding: 5px;
+        left: 10px;
+        top: 16.63px;
+    }
+
+    .logoSection {
+        justify-content: space-around;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 2rem;
+        padding-top: 1rem;
+    }
+}

@@ -1,95 +1,176 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import Image from "next/image";
+import styles from "./page.module.css";
+import Link from "next/link";
+import Sidebar from "@/components/sidebar/Sidebar";
+import { useState } from "react";
 
 export default function Home() {
+  const [mainContentSizeChange, setMainContentSizeChange] = useState(false);
+  const changeWidth = () => {
+    if (mainContentSizeChange) {
+      setMainContentSizeChange(false);
+    } else {
+      setMainContentSizeChange(true);
+    }
+  };
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className={mainContentSizeChange ? "mainClose" : "main"}>
+      <Sidebar toggleSide={changeWidth} />
+      <div
+        className={
+          mainContentSizeChange
+            ? styles.closeMainContainer
+            : styles.mainContainer
+        }
+      >
+        <div className={styles.heading}>
+          <h1>Recurring Invoices</h1>
+          <Link href="/" className="btn">
+            Add recurring invoice <span>+</span>
+          </Link>
+        </div>
+
+        <div className={styles.recurringBox}>
+          <div>
+            <p>recurring invoices</p>
+            <span>215</span>
+          </div>
+          <div>
+            <p>recurring revenue</p>
+            <span>€2500/month</span>
+          </div>
+          <div>
+            <p>recurring overdue</p>
+            <span>22</span>
+          </div>
+        </div>
+
+        <div className={styles.searchSection}>
+          <h2>Per client</h2>
+          <div className={styles.search}>
+            <input type="text" placeholder="Search client" />
+            <button>
+              Search{" "}
+              <Image src="/search.svg" alt="search" width={16} height={16} />
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.table}>
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th># send</th>
+                <th>end date</th>
+                <th>Interval</th>
+                <th>amount</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>
+                  <Image
+                    src="/client.png"
+                    alt="client"
+                    width={55}
+                    height={55}
+                  />{" "}
+                  MadeByMack
+                </td>
+                <td>25</td>
+                <td>24-20-2024</td>
+                <td>3/month</td>
+                <td>€3000</td>
+                <td>Edit</td>
+              </tr>
+              <tr>
+                <td>
+                  <Image
+                    src="/client.png"
+                    alt="client"
+                    width={55}
+                    height={55}
+                  />{" "}
+                  MadeByMack
+                </td>
+                <td>25</td>
+                <td>24-20-2024</td>
+                <td>3/month</td>
+                <td>€3000</td>
+                <td>Edit</td>
+              </tr>
+              <tr>
+                <td>
+                  <Image
+                    src="/client.png"
+                    alt="client"
+                    width={55}
+                    height={55}
+                  />{" "}
+                  MadeByMack
+                </td>
+                <td>25</td>
+                <td>24-20-2024</td>
+                <td>3/month</td>
+                <td>€3000</td>
+                <td>Edit</td>
+              </tr>
+              <tr>
+                <td>
+                  <Image
+                    src="/client.png"
+                    alt="client"
+                    width={55}
+                    height={55}
+                  />{" "}
+                  MadeByMack
+                </td>
+                <td>25</td>
+                <td>24-20-2024</td>
+                <td>3/month</td>
+                <td>€3000</td>
+                <td>Edit</td>
+              </tr>
+              <tr>
+                <td>
+                  <Image
+                    src="/client.png"
+                    alt="client"
+                    width={55}
+                    height={55}
+                  />{" "}
+                  MadeByMack
+                </td>
+                <td>25</td>
+                <td>24-20-2024</td>
+                <td>3/month</td>
+                <td>€3000</td>
+                <td>Edit</td>
+              </tr>
+              <tr>
+                <td>
+                  <Image
+                    src="/client.png"
+                    alt="client"
+                    width={55}
+                    height={55}
+                  />{" "}
+                  MadeByMack
+                </td>
+                <td>25</td>
+                <td>24-20-2024</td>
+                <td>3/month</td>
+                <td>€3000</td>
+                <td>Edit</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
-  )
+  );
 }
